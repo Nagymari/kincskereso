@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+    <title>A mű</title>
+    <style>
+        body {
+            background-color: #181a19;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10vh;
+            font-family: Arial, sans-serif;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="id">ID:</div>
+    <div>
+        <h2>Első feladat - A mű</h2>
+        <br>
+        <iframe src="https://drive.google.com/file/d/1WxZqzWCMrbHh3AYBP-x-tFK-hBkYcgtO/preview" width="640" height="480"
+                allow="autoplay"></iframe>
+
+        <form action="{% url 'work' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="answer" placeholder="Írd ide válaszod"><br>
+            <button type="submit">Küldés</button>
+            <input type="hidden" name="id" value="{{ ID }}">
+        </form>
+    </div>
+</body>
+<script>
+    var IDText = "{{ ID }}";
+    document.getElementById('id').innerHTML = "ID: " + IDText;
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A játszma</title>
+    <style>
+        body {
+            background-color: #181a19;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10vh;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+        }
+        .logout {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="id">ID:</div>
+    <div>
+        <h2>Első feladat - A játszma</h2>
+        <p></p>
+        <iframe src="https://drive.google.com/file/d/1WyC-QNhZaSk3bvbR8HlpTyIB7WlVYDGQ/preview" width="640" height="480"
+                allow="autoplay"></iframe>
+        <form action="{% url 'game' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="answer" placeholder="Írd ide válaszod"><br>
+            <button type="submit">Küldés</button>
+            <input type="hidden" name="id" value="{{ ID }}">
+        </form>
+    </div>
+</body>
+<script>
+    var IDText = "{{ ID }}";
+    document.getElementById('id').innerHTML = "ID: " + IDText;
+</script>
+</html>
