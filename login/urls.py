@@ -1,0 +1,33 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path("", views.login),
+    path("index/", views.main_page, name="log"),
+    path("task1/", views.one, name="task1"),
+    path("task2/", views.two, name="task2"),
+    path("task3/", views.three, name="task3"),
+    path("kereses/", views.search, name="search"),
+    path("kereses/solar/", views.solar, name="solar"),
+    path("kereses/code/", views.code, name="code"),
+    path("kereses/glory/", views.glory, name="glory"),
+    path("kereses/twin/", views.twin, name="twin"),
+    path("muveszet/", views.art, name="art"),
+    path("muveszet/market/", views.market, name="market"),
+    path("muveszet/painting/", views.painting, name="painting"),
+    path("muveszet/piece/", views.piece, name="piece"),
+    path("muveszet/rhythm", views.rhythm, name="rhythm"),
+    path("logika", views.logic, name="logic"),
+    path("logika/game/", views.game, name="game"),
+    path("logika/twin2/", views.twin2, name="twin2"),
+    path("logika/perspective/", views.perspective, name="perspective"),
+    path("logika/sea/", views.sea, name="sea"),
+    path("irodalom/", views.literature, name="literature"),
+    path("irodalom/dictatoroftragedies/", views.dictatoroftragedies, name="dictatoroftragedies"),
+    path("irodalom/work/", views.work, name="work"),
+    path("irodalom/genius/", views.genius, name="genius"),
+    path("irodalom/same/", views.same, name="same"),
+    path("task20/", views.twenty, name="task20"),
+    path("task21/", views.twentyone, name="task21"),
+    path("end/", views.end, name="end"),
+]

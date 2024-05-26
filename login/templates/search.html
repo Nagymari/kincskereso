@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keresési Ág</title>
+<style>
+    body {
+        background-color: #181a19;
+        font-family: Arial, sans-serif;
+    }
+    header {
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        padding: 20px 0;
+    }
+    #id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button {
+        display: none;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    form {
+        margin-right: 10px;
+    }
+    .form-container {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+</head>
+<body>
+<header>Keresési Ág</header>
+<button class="logout" onclick="goToParent()">Főoldal</button>
+<div id="id">ID:</div>
+<div class="buttons">
+    <form method="post" action="{% url 'solar' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button1">Solar</button>
+    </form>
+    <form method="post" action="{% url 'code' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button2">A kód</button>
+    </form>
+    <form method="post" action="{% url 'glory' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button3">Ősmagyarok dicsősége</button>
+    </form>
+    <form method="post" action="{% url 'twin' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button4">Iker</button>
+    </form>
+</div>
+<script>
+    var buttonsToShow = {{ buttons|safe }};
+    var IDText = "{{ ID }}";
+
+    buttonsToShow.forEach(buttonNumber => {
+        document.getElementById('button' + buttonNumber).style.display = 'inline-block';
+    });
+
+    document.getElementById('id').innerHTML = "ID: " + IDText;
+
+    function goToParent() {
+        window.location.href = ".." + "/index";
+    }
+</script>
+</body>
+</html>

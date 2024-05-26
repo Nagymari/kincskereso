@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés</title>
+    <style>
+        .login-container {
+            width: 300px;
+            margin: auto;
+            margin-top: 250px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        body {
+            background-color: #181a19
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 style="color: white">VÁG KINCSKERESŐ</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="id" placeholder="ID"><br>
+            <input type="password" name="password" placeholder="Jelszó"><br>
+            <button type="submit">Bejelentkezés</button>
+        </form>
+    </div>
+</body>
+</html>

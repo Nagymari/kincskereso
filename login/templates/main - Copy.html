@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keresési ág</title>
+<style>
+    body {
+        background-color: #181a19;
+        font-family: Arial, sans-serif;
+    }
+    header {
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        padding: 20px 0;
+    }
+    #id {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+    .buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .button {
+        display: none;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<header>Keresési ág</header>
+<button class="logout" onclick="window.location.href='..'">Logout</button>
+<div id="id">ID:</div>
+<div class="buttons">
+    <form method="post" action="{% url 'task1' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button1">A költő</button>
+    </form>
+    <form method="post" action="{% url 'task2' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button2">Formalitás</button>
+    </form>
+    <form method="post" action="{% url 'task3' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ ID }}">
+        <button type="submit" class="button" id="button3">Formalitás</button>
+    </form>
+    <button class="button" id="button4" onclick="window.location.href='/task/4'">Keresés</button>
+    <button class="button" id="button5" onclick="window.location.href='/task/5'">Logika</button>
+    <button class="button" id="button6" onclick="window.location.href='/task/6'">Művészet</button>
+    <button class="button" id="button7" onclick="window.location.href='/task/7'">Irodalom</button>
+    <br>
+    <button class="button" id="button8" onclick="window.location.href='/task/20'">Button 20</button>
+    <br>
+    <button class="button" id="button9" onclick="window.location.href='/task/21'">Button 21</button>
+</div>
+
+<script>
+    var buttonsToShow = {{ buttons|safe }};
+    var IDText = "{{ ID }}";
+
+    buttonsToShow.forEach(buttonNumber => {
+        document.getElementById('button' + buttonNumber).style.display = 'inline-block';
+    });
+
+    document.getElementById('id').innerHTML = "ID: " + IDText;
+</script>
+</body>
+</html>
