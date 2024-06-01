@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VÁGKERESŐ</title>
+</head>
+<style>
+    body {
+        background-color: #181a19;
+    }
+    h1 {
+        font-family: bookman old style;
+        font-size: 100px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    h2 {
+        font-family: bookman old style;
+        font-size: 50px;
+        margin: 25px;
+        text-align: center;
+        color: white;
+    }
+    .logout {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: green;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+    }
+
+</style>
+<body>
+    <h1>VÁGKERESŐ</h1>
+    <h2>
+        {{ user.username }}
+    </h2>
+    <button class="logout" onclick="window.location.href='/logout'">Kijelentkezés</button>
+</body>
+</html>
